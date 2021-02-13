@@ -7,7 +7,7 @@ export const bookReducer=(state,action)=>{
             return [...state,{
                 title: action.book.title,
                 author:action.book.author,
-                id:uuid();
+                id:uuid()
 
             }]
         case 'Remove_BOOK':
