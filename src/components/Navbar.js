@@ -14,7 +14,7 @@ const Navbar = () => {
       <h1>Book List App</h1>
       <div ></div>
       <ul>
-        <Link to='/'><li> Home </li></Link>        
+        <Link to='/'><li> SignUp/Login </li></Link>        
       </ul>
       
     </nav>

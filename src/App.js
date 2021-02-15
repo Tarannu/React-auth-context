@@ -6,6 +6,7 @@ import AuthContextProvider from "./contexts/AuthContext";
 import BookForm from "./components/BookForm";
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import SignUp from "./components/Signup/SignUp";
+import login from "./components/Signup/login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
          
           <Switch>
           <Route path="/" exact component={SignUp}/>
+          <Route path="/login" component={login} />
           </Switch>
         </BookContextProvider>
       </AuthContextProvider>
