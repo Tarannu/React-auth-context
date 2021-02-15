@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Container,Form, Button,Card} from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 
 
 
@@ -43,6 +43,7 @@ const SignUp = () => {
     <div className="w-100 text-denter mt-2">
       Already have an account? Log in
     </div>
+    <div><Link to="/booklist">Continue As Guesst</Link></div>
     </Container>
     
   );

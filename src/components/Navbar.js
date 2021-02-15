@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 //import { AuthContext } from "../contexts/AuthContext";
 import { BookContext } from "../contexts/BookContext";
+import {Link} from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -13,9 +14,7 @@ const Navbar = () => {
       <h1>Book List App</h1>
       <div ></div>
       <ul>
-        <li> Home </li>
-        <li> About </li>
-        <li> Contact</li>
+        <Link to='/'><li> Home </li></Link>        
       </ul>
       
     </nav>
