@@ -7,6 +7,7 @@ import BookForm from "./components/BookForm";
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import SignUp from "./components/Signup/SignUp";
 import login from "./components/Signup/login";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
         <BookContextProvider>
          
           <Switch>
-          <Route path="/" exact component={SignUp}/>
+          <Route path="/" exact component={Dashboard}  />
+          <Route path="/signup" component={SignUp}/>
           <Route path="/login" component={login} />
+         
           </Switch>
         </BookContextProvider>
       </AuthContextProvider>
@@ -26,7 +29,7 @@ function App() {
   );
 }
 const Home=()=>{
-  //<Route path="/booklist" component={Home}/>
+  // <Route path="/booklist" component={Home}/>
   return (
     <div>
     <Nav/>

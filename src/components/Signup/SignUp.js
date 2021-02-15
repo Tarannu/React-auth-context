@@ -57,7 +57,7 @@ const SignUp = () => {
     <div className="w-100 text-denter mt-2">
       Already have an account? <Link to="/login">Log in</Link>
     </div>
-    <div><Link to="/booklist">Continue As Guesst</Link></div>
+    <div><Link to="/">Continue As Guest</Link></div>
    
     </Container>
     
