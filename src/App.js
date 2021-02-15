@@ -16,8 +16,6 @@ function App() {
          
           <Switch>
           <Route path="/" exact component={SignUp}/>
-          <Route path="/booklist" component={Home}/>
-          
           </Switch>
         </BookContextProvider>
       </AuthContextProvider>
@@ -26,6 +24,7 @@ function App() {
   );
 }
 const Home=()=>{
+  //<Route path="/booklist" component={Home}/>
   return (
     <div>
     <Nav/>

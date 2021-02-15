@@ -1,16 +1,36 @@
-import React,{useState,createContext} from 'react';
+import React,{useContext,useState,createContext,useEffect} from 'react';
+import {auth} from '../firebase';
 
-export const AuthContext=createContext();
-
+const AuthContext=createContext();
+export const useAuth=()=>{
+  return useContext(AuthContext);
+}
 const AuthContextProvider = (props) => {
-    const [isAuthenticated,setAuthenticated]=useState(false);
+    //const [isAuthenticated,setAuthenticated]=useState(false);
+    const [currentUser,setCurrentUser]=useState();
 
-    const toggleAuth=()=>{
-        setAuthenticated({isAuthenticated:!isAuthenticated});
+    const signup=(email,password)=>{
+      return auth.createUserWithEmailAndPassword(email,password);
+
+    }
+    // const toggleAuth=()=>{
+    //     setAuthenticated({isAuthenticated:!isAuthenticated});
+    // }
+    useEffect(()=>{
+      const unsubscribe=auth.onAuthStateChanged(user=>{
+        setCurrentUser(user);
+      })
+      return unsubscribe;
+    },[])
+    
+
+    const value={
+      currentUser,
+      signup
     }
 
     return (
-        <AuthContext.Provider value={{...isAuthenticated,toggleAuth:toggleAuth}}>
+        <AuthContext.Provider value={value}>
         {props.children}
         </AuthContext.Provider>
     )

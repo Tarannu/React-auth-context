@@ -1,27 +1,40 @@
-import React, { useRef } from "react";
+import React, { useState,useRef } from "react";
 import { Container,Form, Button,Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-
+import {useAuth} from '../../contexts/AuthContext';
 
 
 const SignUp = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  //const {signup} =useAuth();
+  const {signup} =useAuth();
+  const [error,setError]=useState('');
+  const [loading,setLoading]=useState(false);
 
-  // const handleSubmit=(e)=>{
-  //   e.preventDefault();
-  //   signup(emailRef.current.value,passwordRef.current.value);
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    if(passwordRef.current.value!==passwordConfirmRef.current.value){
+      return setError('Passwords do not match');
+    }
+    try{
+      setError('');
+      setLoading(true);
+      await signup(emailRef.current.value,passwordRef.current.value);
+    }catch{
+      setError('Failed to create an account')
+    }
+    setLoading(false);
+    
 
-  //}
+  }
   return (
     <Container>
 
     <Card>
       <Card.Body>
         <h2 className="text-center mb-4">Sign Up</h2>
-        <Form>
+        <Form onSubmit={handleSubmit}>
         <Form.Group id="email">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" ref={emailRef} required/>
@@ -34,7 +47,7 @@ const SignUp = () => {
         <Form.Label>Password Confirm</Form.Label>
         <Form.Control type="password" ref={passwordConfirmRef} required/>
         </Form.Group>
-        <Button type="submit" className="w-100" >Sign Up</Button>
+        <Button disabled={loading} type="submit" className="w-100" >Sign Up</Button>
         </Form>
       </Card.Body>
     </Card>
@@ -43,10 +56,10 @@ const SignUp = () => {
     <div className="w-100 text-denter mt-2">
       Already have an account? Log in
     </div>
-    <div><Link to="/booklist">Continue As Guesst</Link></div>
+   
     </Container>
     
   );
 };
-
+// <div><Link to="/booklist">Continue As Guesst</Link></div>
 export default SignUp;
