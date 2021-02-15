@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+//import { AuthContext } from "../contexts/AuthContext";
 import { BookContext } from "../contexts/BookContext";
 
 
 const Navbar = () => {
-  const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+  //const { isAuthenticated, toggleAuth } = useContext(AuthContext);
   const {books} =useContext(BookContext);
+  //onClick={toggleAuth} > {isAuthenticated ? "Logged In" : "Logged Out"}
   return (
       <div>
     <nav>
-      <h1>Context App</h1>
-      <div onClick={toggleAuth}>{isAuthenticated ? "Logged In" : "Logged Out"}</div>
+      <h1>Book List App</h1>
+      <div ></div>
       <ul>
         <li> Home </li>
         <li> About </li>

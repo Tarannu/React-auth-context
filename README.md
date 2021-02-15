@@ -2,6 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 The app is deployed at jazzy-knowledge.surge.sh
+Deployed on urge Platform
 
 ## Available Scripts
 
