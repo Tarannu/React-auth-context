@@ -18,6 +18,9 @@ const AuthContextProvider = (props) => {
       return auth.signInWithEmailAndPassword(email,password);
 
     }
+    // const logout=()=>{
+    //   return auth.signOut();
+    // }
 
     // const toggleAuth=()=>{
     //     setAuthenticated({isAuthenticated:!isAuthenticated});
@@ -34,7 +37,8 @@ const AuthContextProvider = (props) => {
     const value={
       currentUser,
       signup,
-      login
+      login,
+      
     }
 
     return (

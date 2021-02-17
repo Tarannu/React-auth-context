@@ -8,6 +8,7 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import SignUp from "./components/Signup/SignUp";
 import login from "./components/Signup/login";
 import Dashboard from "./components/Dashboard";
+import PublicDashboard from "./components/PublicDashboard";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
         <BookContextProvider>
          
           <Switch>
-          <Route path="/" exact component={Dashboard}  />
+          <Route path="/" exact component={PublicDashboard}  />
           <Route path="/signup" component={SignUp}/>
           <Route path="/login" component={login} />
+          <Route path="/list" component={Dashboard}/>
          
           </Switch>
         </BookContextProvider>

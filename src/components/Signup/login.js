@@ -18,7 +18,7 @@ const Login = () => {
       setError('');
       setLoading(true);
       await login(emailRef.current.value,passwordRef.current.value);
-      history.push("/"); 
+      history.push("/list"); 
     }catch{
       setError('Failed to log in')
     }
@@ -50,7 +50,8 @@ const Login = () => {
     
   
     <div className="w-100 text-denter mt-2">
-      Want to create an account? <Link to="/signup">Sign Up</Link>
+      Want to create an account? <Link to="/signup">Sign Up</Link> or
+      <div><Link to="/">Continue As Guest</Link></div>
     </div>
    
     </Container>
