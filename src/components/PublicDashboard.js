@@ -6,7 +6,9 @@ import BookList from './BookList';
 const PublicDashboard = () => {
     return (
         <div>
+           
             <Nav/>
+            <p>(To add new book and author sign up or login)</p>
             <BookList/>
             
         </div>
